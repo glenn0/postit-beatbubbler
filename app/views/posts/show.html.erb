@@ -1,0 +1,26 @@
+<table border="1" cellpadding="10">
+  <tr>
+    <td>Artist</td>
+    <td><%= @post.artist %></td>
+  </tr>
+  <tr>
+    <td>Title</td>
+    <td><%= @post.title %></td>
+  </tr>
+  <tr>
+    <td>Link</td>
+    <td><a href="<%= @post.url %>" target="_blank"><%= @post.url %></td>
+  </tr>
+  <tr>
+    <td>Dropped by</td>
+    <td><%= @post.user.username %>
+  </tr>
+  <tr>
+    <td>Dropped at</td>
+    <td><%= @post.created_at %>
+  </tr>
+  <tr>
+    <td>Why?</td>
+    <td><%= @post.description %></td>
+  </tr>
+</table>

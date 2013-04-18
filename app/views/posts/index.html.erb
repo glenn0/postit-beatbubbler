@@ -1,0 +1,9 @@
+<table border="1" cellpadding="10">
+  <% @posts.reverse.each do |p| %>
+  <tr>
+    <td><a href="<%= p.url%>" target="_blank"><%= p.artist %> - <%= p.title %></td>
+    <td><%= time_ago_in_words(p.created_at) %> ago</td>
+    <td><%= link_to '+', post_path(p.id) %></td>
+  </td>
+  <% end %>
+ </tr>

@@ -1,0 +1,20 @@
+<h5>Drop a beat...<h5>
+
+<%= form_for @post do |f| %>
+  <%= f.label :url, 'Link' %>
+  <%= f.text_field :url %>
+  <br/>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+  <%= f.label :artist %>
+  <%= f.text_field :artist %>
+  <br/>
+  <%= f.label :description, "What's so good about it?" %>
+  <%= f.text_field :description %>
+  <br/>
+  <%= f.label :user_id, "ID" %>
+  <%= f.text_field :user_id %>
+  <br/>
+  <%= f.submit "Create Post" %>
+<% end %>
