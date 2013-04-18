@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -12,7 +13,14 @@ class PostsController < ApplicationController
   end
 
   def create 
-    Post.create(params[:post])
+    @post = Post.new(params[:post])
+    @post.user_id = 1
+    if @post.save
+      flash[:notice] = "Post was created"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
 end
