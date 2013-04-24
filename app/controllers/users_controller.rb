@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User was created"
       redirect_to root_path
     else
-      render :new
+      render 'posts/show'
     end
   end
 

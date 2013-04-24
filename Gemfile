@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'json'
 
-gem 'bootstrap-sass', '~> 2.3.0.1'
+#gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'jquery-rails'
 
 # Gems used only for assets and not required
