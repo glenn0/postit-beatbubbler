@@ -3,6 +3,7 @@
   <tr>
     <td><a href="<%= p.url%>" target="_blank"><%= p.artist %> - <%= p.title %></td>
     <td><%= time_ago_in_words(p.created_at) %> ago</td>
+    <td><%= p.user.username %>
     <td><% if p.comments.count > 0 %>
           <%= link_to pluralize(p.comments.count, "comment"), post_path(p.id) %> 
         <% else %>

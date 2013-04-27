@@ -5,5 +5,15 @@ Postit::Application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :users, except: [:destroy]
+  resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  get '/register', to: 'users#new'
+  post '/register', to: 'users#create'
+
+  get '/logout', to: 'sessions#destroy'
 end

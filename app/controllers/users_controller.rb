@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "User was created"
+      flash[:notice] = "Welcome aboard!"
       redirect_to root_path
     else
       render 'posts/show'
