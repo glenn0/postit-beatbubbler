@@ -227,7 +227,11 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+  /*background-color: #ffffff; */
+
+    background: url(/public/img/hexabump.png) repeat 0 0;
+    background-image: url(/public/img/hexabump.png)
+
 }
 
 a {
