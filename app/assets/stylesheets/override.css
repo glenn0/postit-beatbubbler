@@ -1,17 +1,20 @@
 body {
-    background-image: url(struckaxiom.png);
+    background-image: url(grid_noise.png);
     background-repeat:repeat;
     color: #6E6E6E;
 }
 
 table {
+    background-color: #ebebeb;
+    /*
     background-image: url(brushed_alu.png);
     background-repeat:repeat;
+    */
 }
 
 .navtweaks {
   margin-top: 15px;
-  background-image: url(brushed_alu.png);
+  background-image: url(ice_age.png);
   background-repeat:repeat;
 }
 
