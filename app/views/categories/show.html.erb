@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered">
+  <% @category.posts.reverse.each do |p| %>
+  <tr>
+    <td><a href="<%= p.url%>" target="_blank"><%= p.artist %> - <%= p.title %>
+    </td>
+    <td><%= time_ago_in_words(p.created_at) %> ago
+    </td>
+    <td><%= p.user.username %>
+    </td>
+    <td>
+        <% p.categories.each do |c| %>
+        <span class="label"><%= c.name %></span>
+        <% end %>
+    </td>
+    <td>
+        <% if p.comments.count > 0 %>
+          <%= link_to pluralize(p.comments.count, "comment"), post_path(p.id) %> 
+        <% else %>
+          <%= link_to "No Comments", post_path(p.id) %>
+        <% end %>
+    </td>
+  </td>
+  <% end %>
+ </tr>

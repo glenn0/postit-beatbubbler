@@ -9,6 +9,8 @@ Postit::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :categories
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 

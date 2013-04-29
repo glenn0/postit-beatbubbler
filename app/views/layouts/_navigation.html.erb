@@ -1,18 +1,20 @@
-  <ul class="nav">
+  <ul class="nav pull-left">
     <li>
       <%= link_to "BeatMountain", root_path, :class => 'brand' %>
     </li>
-    <!--
-    <li>
-      <%= link_to 'Popular', root_path %>
-    </li>
-    <li>
-      <%= link_to 'Recent', root_path %>
-    </li>
-    -->
     <li>
       <%= link_to 'Submit', new_post_path %>
     </li>
+    <div class="btn-group">
+      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+      Category
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+          <% Category.all.each do |c| %>
+            <li><%= link_to c.name, c %></li>
+          <% end %>
+    </ul>
   </ul>
   <ul class="nav pull-right">
     <% if current_user %>
