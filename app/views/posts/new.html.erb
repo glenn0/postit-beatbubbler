@@ -17,6 +17,9 @@
   <%= f.label :artist %>
   <%= f.text_field :artist %>
   <br/>
+  <%= f.label :category_ids, "Category" %>
+  <%= f.select :category_ids, Category.all.collect{|c| [c.name, c.id]}, {}, {multiple: 'multiple'} %>
+  <br/>
   <%= f.label :description, "What's so good about it?" %>
   <%= f.text_field :description %>
   <br/>
