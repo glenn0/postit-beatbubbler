@@ -19,7 +19,15 @@
           <%= link_to "No Comments", post_path(p.id) %>
         <% end %>
     </td>
-  </td>
+    <td>
+      <%= link_to vote_post_path(p, vote: true), method: 'post' do %>
+        +
+      <% end %>
+      <%= p.vote_total %>
+      <%= link_to vote_post_path(p, vote: false), method: 'post' do %>
+        -
+      <% end %>
+    </td>
   <% end %>
  </tr>
 </table>

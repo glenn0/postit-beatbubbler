@@ -2,7 +2,16 @@ Postit::Application.routes.draw do
   root to: 'posts#index'
 
   resources :posts, except: [:destroy] do
+    member do
+      post 'vote'
+    end
+    collection do
+      post 'archive'
+    end
     resources :comments, only: [:create]
+      member do
+        post 'vote'
+      end
   end
 
   resources :users, only: [:new, :create]

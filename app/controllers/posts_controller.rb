@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :require_user, only: [:new, :create]
-  before_filter :find_post, only: [:edit, :update] #creates the @post variable for the require_creator filter.
+  before_filter :require_user, only: [:new, :create, :vote]
+  before_filter :find_post, only: [:edit, :update, :vote] #creates the @post variable for the require_creator filter.
   before_filter :require_creator, only: [:edit, :update]
 
   def index
@@ -31,6 +31,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+  end
+
+  def vote
+    Vote.create(voteable: @post, user: current_user, vote: params[:vote])
+    flash[:notice] = "Thanks for voting!"
+    redirect_to :back
   end
 
 
