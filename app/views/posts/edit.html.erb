@@ -1,0 +1,27 @@
+<h5>Tweak a beat...<h5>
+
+<% if @post.errors.any? %>
+  <div class="alert alert-error">
+    <%= @post.errors.full_messages.join(', ') %>
+  </div>
+<% end %>
+
+<%= form_for @post do |f| %>
+
+  <%= f.label :url, 'Link' %>
+  <%= f.text_field :url %>
+  <br/>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+  <%= f.label :artist %>
+  <%= f.text_field :artist %>
+  <br/>
+  <%= f.label :category_ids, "Category" %>
+  <%= f.select :category_ids, Category.all.collect{|c| [c.name, c.id]}, {}, {multiple: 'multiple'} %>
+  <br/>
+  <%= f.label :description, "What's so good about it?" %>
+  <%= f.text_field :description %>
+  <br/>
+  <%= f.submit "Submit", :class => "btn" %>
+<% end %>
