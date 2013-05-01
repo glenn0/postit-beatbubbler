@@ -1,0 +1,3 @@
+//alert("You submitted a vote for <%= @post.id %>. It's now at <%= @post.vote_total %>!");
+
+$("#posts_vote_<%= @post.id %>").html("<%= @post.vote_total %>")

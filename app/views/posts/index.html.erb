@@ -1,6 +1,17 @@
 <table class="table table-striped table-bordered">
   <% @posts.reverse.each do |p| %>
   <tr>
+    <td>
+      <%= link_to vote_post_path(p, vote: false), method: 'post', 'data-remote' => true do %>
+        -
+      <% end %>
+
+      <span class="label" id="posts_vote_<%= p.id %>"><%= p.vote_total %></span>
+
+      <%= link_to vote_post_path(p, vote: true), method: 'post', 'data-remote' => true do %>
+        +
+      <% end %>
+    </td>    
     <td><%= link_to "#{p.artist} - #{p.title}", p.url, target: '_blank' %> 
     </td>
     <td><%= time_ago_in_words(p.created_at) %> ago
@@ -18,15 +29,6 @@
         <% else %>
           <%= link_to "No Comments", post_path(p.id) %>
         <% end %>
-    </td>
-    <td>
-      <%= link_to vote_post_path(p, vote: true), method: 'post' do %>
-        +
-      <% end %>
-      <%= p.vote_total %>
-      <%= link_to vote_post_path(p, vote: false), method: 'post' do %>
-        -
-      <% end %>
     </td>
   <% end %>
  </tr>

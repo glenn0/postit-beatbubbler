@@ -35,8 +35,14 @@ class PostsController < ApplicationController
 
   def vote
     Vote.create(voteable: @post, user: current_user, vote: params[:vote])
-    flash[:notice] = "Thanks for voting!"
-    redirect_to :back
+
+    respond_to do |format|
+      format.html do
+        #flash[:notice]
+        redirect_to :back
+      end
+      format.js
+    end
   end
 
 
