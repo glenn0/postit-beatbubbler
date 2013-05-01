@@ -33,6 +33,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post.update_attributes(params[:post])
+    redirect_to root_path
+  end
+
   def vote
     Vote.create(voteable: @post, user: current_user, vote: params[:vote])
 
